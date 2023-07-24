@@ -19,7 +19,8 @@ export default function TaskModalWindow(props: PropsType) {
     return (
         <div className={style.wrapper} onClick={closeWindowHandler}>
             <div className={style.content_wrapper} >
-                <p>{props.task?.name}</p>
+                <h1 className={style.task_header}>{props.task?.name}</h1>
+                <p className={style.task_description}>{props.task?.description}</p>
             </div>
         </div>
     );

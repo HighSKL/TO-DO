@@ -34,7 +34,9 @@ export default function TasksPage(props:PropsType){
                     <div className={style.search_block}>
                         <Search />
                     </div>
-                    <TaskBlock tasks={props.tasks} setModalWindow={setModalWindowOpenHandler} />
+                    <div className={style.tasks_block_container}>
+                        <TaskBlock tasks={props.tasks} setModalWindow={setModalWindowOpenHandler} />
+                    </div>
                 </div>
             </div>
         </>

@@ -18,3 +18,21 @@
     margin-top: 1.5vh;
     cursor: pointer;
 }
+
+.add_task_block{
+    min-width: 15%;
+    min-height: 15vh;
+    border-radius: 2em;
+    width: auto;
+    height: auto;
+    float: left;
+    background-color: #33b249;
+    padding: .7vh 2%;
+    margin-left: 1%;
+    margin-top: 1.5vh;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

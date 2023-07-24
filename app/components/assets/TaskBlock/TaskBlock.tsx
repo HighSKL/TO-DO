@@ -11,6 +11,11 @@ type PropsType = {
 export default function TaskBlock(props:PropsType) {
     return ( 
         <div className={style.wrapper}>
+            <div className={style.add_task_button}>
+            <div className={style.add_task_block} onClick={()=>{}}>
+                <div className={style.add_task_text}>Создать задачу <br /> +</div>
+            </div>
+            </div>
             {
                 props.tasks.map((task: Task) => (
                     <div className={style.task_block} key={task.id} onClick={()=>{props.setModalWindow(task.id)}}>

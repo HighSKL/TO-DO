@@ -11,9 +11,27 @@
 }
 
 .content_wrapper{
-    width: 70%;
-    height: 80vh;
+    width: 40%;
+    height: 40vh;
     background-color: white;
     border-radius: 3em;
     box-shadow: 0 0 1em rgba(0, 0, 0, 0.208);
+    padding: 2vh 3%;
+    animation: showModalWindow .4s ease-in;
+}
+
+.task_header{
+    font-weight: 800;
+    font-family: "Arial Black";
+    width: 120%;
+}
+
+
+@keyframes showModalWindow {
+    from{
+        opacity: 0%;
+    }
+    to{
+        opacity: 100%;
+    }
 }
