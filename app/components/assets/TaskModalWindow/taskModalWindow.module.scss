@@ -8,6 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 9999999;
 }
 
 .content_wrapper{
@@ -21,11 +22,53 @@
 }
 
 .task_header{
+    float: left;
     font-weight: 800;
     font-family: "Arial Black";
-    width: 120%;
+    font-size: 2em;
+    width: 85%;
+    height:  6.5vh;
+    background-color: none;
+    border: none;
+    outline: none;
+    resize: none;
+    &:focus{
+        transition: .2s ease;
+        border-bottom: 1px solid black;
+    }
 }
 
+.success_button{
+    margin-left: 2%;
+    margin-top: 1vh;
+    float: left;
+    background-color: rgb(121, 219, 108);
+    width: 40px;
+    border-radius: 50%;
+    height: 40px;
+    color: white;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .2s ease;
+    border: 0;
+    cursor: pointer;
+    &:disabled{
+        background-color: rgb(93, 202, 79);
+        .icon{
+            color: rgb(233, 233, 233);
+        }
+    }
+    .icon{
+        font-size: 2em;
+    }
+}
+
+.task_description{
+    width: 100%;
+    float: left;
+}
 
 @keyframes showModalWindow {
     from{

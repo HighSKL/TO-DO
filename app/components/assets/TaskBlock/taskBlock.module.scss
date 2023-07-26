@@ -17,6 +17,10 @@
     margin-left: 1%;
     margin-top: 1.5vh;
     cursor: pointer;
+    transition: .5s ease;
+    &:hover{
+        transform: scale(.95);
+    }
 }
 
 .add_task_block{
@@ -26,7 +30,7 @@
     width: auto;
     height: auto;
     float: left;
-    background-color: #33b249;
+    background-color: rgb(121, 219, 108);;
     padding: .7vh 2%;
     margin-left: 1%;
     margin-top: 1.5vh;
@@ -35,4 +39,12 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    .add_plus{
+        color: white;
+        font-size: 300%;
+    }
+    transition: .5s ease;
+    &:hover{
+        transform: scale(.95);
+    }
 }

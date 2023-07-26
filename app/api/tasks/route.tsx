@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import {tasks} from "../data/tasks"
+import {tasks, setTasks} from "../data/tasks"
+import { Task } from "@/app/types";
 
 export async function GET(res: Response){
 
@@ -16,4 +17,21 @@ export async function GET(res: Response){
         })
     }
     return NextResponse.json(currentTasks)
+}
+
+export async function POST(req: Request, res: Response){
+    const body = await req.json()
+
+    let changedTask:Task[] = []
+
+    tasks.forEach(task=>{
+        if(task.id == body.id)
+            task.name = body.name
+        changedTask.push(task)
+    })
+
+
+    setTasks(changedTask)
+
+    return NextResponse.json({status:200})
 }
