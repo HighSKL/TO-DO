@@ -14,10 +14,6 @@ type PropsType = {
 
 export default function TaskBlock(props:PropsType) {
 
-    const addNewTask = () => {
-        alert('a')
-    }
-
     return ( 
         <div className={style.wrapper}>
             <div className={style.add_task_button}>

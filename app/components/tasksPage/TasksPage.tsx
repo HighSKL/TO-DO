@@ -22,7 +22,6 @@ export default function TasksPage(props:PropsType){
     async function setModalWindowOpenHandler(taskID?: number){
         if(taskID){
             const task = await getCurrentTask(taskID).then(res => res.json())
-            //@ts-ignore
             setActiveTask(task[0]);
             setModalWindowOpen(isModalWindowOpen?false:true)
         }

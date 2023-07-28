@@ -19,7 +19,104 @@
     box-shadow: 0 0 1em rgba(0, 0, 0, 0.208);
     padding: 2vh 3%;
     animation: showModalWindow .4s ease-in;
+    overflow: hidden;
 }
+
+.slider_line{
+    position: absolute;
+    width: 300%;
+    height: 100%;
+    float: left;
+    margin-top: -100%;
+}
+
+.task_name_block{
+    width: 100%;
+    height: 100%;
+    transition: .4s linear;
+    margin-top: 10vh;
+    text-align: center;
+    float: left;
+    button{
+        width: 20%;
+        height: 5vh;
+        float: right;
+        border: none;
+        background-color: #2E3034;
+        color:white;
+        border-radius: 1em;
+        margin-right: 7%;
+        margin-top: 5vh;
+    }
+    h1{
+        text-align: center;
+    }
+    textarea{
+        width: 85%;
+        margin-left: 7.5%;
+        margin-top: 5vh;
+        height:  6.5vh;
+        float: left;
+        resize: none;
+        outline: none;
+        border:none;
+        border-bottom: 1px solid black;
+        font-size: 1.8em;
+        background-color: none;
+        text-align: center;
+        &::placeholder{
+            padding-top: 2.5%;
+            font-size: .7em;
+            font-family: Arial;
+            font-weight: 300;
+            color:rgba(0, 0, 0, 0.231);
+        }
+    }
+}
+
+.task_description_block{
+    width: 100%;
+    height: 100%;
+    float: left;
+    transition: .8s ease-in;
+    button{
+        width: 20%;
+        height: 5vh;
+        float: right;
+        border: none;
+        background-color: #2E3034;
+        color:white;
+        border-radius: 1em;
+        margin-right: 7%;
+        margin-top: 5vh;
+    }
+    h1{
+        text-align: center;
+    }
+    textarea{
+        width: 85%;
+        margin-left: 7.5%;
+        margin-top: 5vh;
+        min-height: 15vh;
+        float: left;
+        resize: none;
+        outline: none;
+        border:none;
+        border-bottom: 1px solid black;
+        font-size: 1em;
+        background-color: none;
+        &::placeholder{
+            padding-top: 2.5%;
+            font-size: .7em;
+            font-family: Arial;
+            font-weight: 300;
+            color:rgba(0, 0, 0, 0.231);
+        }
+    }
+}
+
+
+
 
 @keyframes showModalWindow {
     from{
