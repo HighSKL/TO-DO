@@ -5,6 +5,7 @@ import TaskModalWindow from '../assets/TaskModalWindow/TaskModalWindow';
 import TaskBlock from '../assets/TaskBlock/TaskBlock';
 import { Task } from '@/app/types';
 import CreateTaskModalWindow from '../assets/CreateTaskModalWindow/CreateTaskModalWindow';
+import { getCurrentTask } from '@/app/api/data/requests';
 
 type PropsType = {
     tasks: Array<Task>
@@ -12,15 +13,12 @@ type PropsType = {
 
 export default function TasksPage(props:PropsType){
 
-    let [isModalWindowOpen, setModalWindowOpen] = React.useState(false)
-    let [isCreateTaskModalOpen, setCreateTaskModalOpen] = React.useState(false)
     let [activeTask, setActiveTask] = React.useState<Task|null>(null)
-
-    const getCurrentTask=async(taskID:number)=>await fetch(`http://localhost:3000/api/tasks?id=${taskID}`,{next:{revalidate:5}})
-
+    let [isModalWindowOpen, setModalWindowOpen] = React.useState<boolean>(false)
+    let [isCreateTaskModalOpen, setCreateTaskModalOpen] = React.useState<boolean>(false)
     async function setModalWindowOpenHandler(taskID?: number){
         if(taskID){
-            const task = await getCurrentTask(taskID).then(res => res.json())
+            const task = await getCurrentTask(taskID)
             setActiveTask(task[0]);
             setModalWindowOpen(isModalWindowOpen?false:true)
         }
