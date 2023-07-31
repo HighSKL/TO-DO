@@ -5,12 +5,12 @@ import { Task } from '@/app/types';
 import { TiTick } from "react-icons/ti";
 import { useRouter } from 'next/navigation';
 
-
-
 type PropsType = {
     task: Task|null
     setModalWindow: any
 }
+
+
 
 export default function TaskModalWindow(props: PropsType) {
 
@@ -43,8 +43,8 @@ export default function TaskModalWindow(props: PropsType) {
      
     const submitTaskNameChanges = async (taskID:number) => {
         if(editTaskName){
-            setEditTaskDescription(false);
-            if(taskDescriptionRef.current != null){
+            setEditTaskName(false);
+            if(taskNameRef.current != null){
                 let request = await fetch(`http://localhost:3000/api/tasks`,{
                     // @ts-ignore
                     method: 'POST', body: JSON.stringify({name: taskNameRef.current.value, id: taskID}),
@@ -56,18 +56,25 @@ export default function TaskModalWindow(props: PropsType) {
     }
 
     const submitTaskDescriptionChanges = async (taskID:number) => {
-        if(editTaskName){
-            setEditTaskName(false);
-            if(taskNameRef.current != null){
+        if(editTaskDescription){
+            setEditTaskDescription(false);
+            if(taskDescriptionRef.current != null){
                 let request = await fetch(`http://localhost:3000/api/tasks`,{
                     // @ts-ignore
                     method: 'POST', body: JSON.stringify({description: taskDescriptionRef.current.value, id: taskID}),
                 })
-                // props.setModalWindow()
                 router.refresh()
             }
-            
         }
+    }
+
+    const completeTask = async ( taskID: number ) => {
+        let request = await fetch(`http://localhost:3000/api/tasks/`, {
+            method: 'DELETE',
+            body: JSON.stringify({id: taskID})
+        })
+        props.setModalWindow();
+        router.refresh();
     }
 
     return (
@@ -76,12 +83,16 @@ export default function TaskModalWindow(props: PropsType) {
                 <div>
                     <textarea className={style.task_header} ref={taskNameRef}>{props.task?.name}</textarea>
                     {/* @ts-ignore */}
-                    <button className={style.success_button} type="submit" disabled={editTaskName?false:true} style={{opacity:editTaskName?"100%":"0%"}} onClick={()=>{submitTaskNameChanges(props.task.id)}} ><TiTick className={style.icon}/></button>
+                    <button className={style.success_button} type="submit" disabled={editTaskName?false:true} style={{opacity:editTaskName?"100%":"0%"}} onClick={()=>submitTaskNameChanges(props.task.id)} ><TiTick className={style.icon}/></button>
                 </div>
                 <div>
                     <textarea className={style.task_description} ref={taskDescriptionRef}>{props.task?.description}</textarea>
                     {/* @ts-ignore */}
-                    <button className={style.success_button} type="submit" disabled={editTaskDescription?false:true} style={{opacity:editTaskDescription?"100%":"0%"}} onClick={()=>{submitTaskDescriptionChanges(props.task.id)}} ><TiTick className={style.icon}/></button>
+                    <button className={style.success_button} type="submit" disabled={editTaskDescription?false:true} style={{opacity:editTaskDescription?"100%":"0%"}} onClick={()=>submitTaskDescriptionChanges(props.task.id)} ><TiTick className={style.icon}/></button>
+                </div>
+                <div className={style.buttons_block}>
+                    {/* @ts-ignore */}
+                    <button className={style.completeTask} onClick={()=>completeTask(props.task?.id)}>Выполнено</button>
                 </div>
             </div>
         </div>

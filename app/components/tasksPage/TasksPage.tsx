@@ -1,7 +1,6 @@
 'use client'
 import React from 'react';
 import style from './tasksPage.module.scss'
-import Search from '../assets/SearchButton/Search';
 import TaskModalWindow from '../assets/TaskModalWindow/TaskModalWindow';
 import TaskBlock from '../assets/TaskBlock/TaskBlock';
 import { Task } from '@/app/types';
@@ -33,9 +32,7 @@ export default function TasksPage(props:PropsType){
             {isCreateTaskModalOpen?<CreateTaskModalWindow closeWindow={setCreateTaskModalOpen}/>: null}
             <div className={style.wrapper}>
                 <div className={style.content_wrapper}>
-                    <div className={style.search_block}>
-                        <Search />
-                    </div>
+                    <h1 className={style.header}>To-Do</h1>
                     <div className={style.tasks_block_container}>
                         <TaskBlock tasks={props.tasks} setModalWindow={setModalWindowOpenHandler} setCreateModalWindow={setCreateTaskModalOpen}/>
                     </div>

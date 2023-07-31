@@ -13,7 +13,7 @@
 
 .content_wrapper{
     width: 50%;
-    height: 60vh;
+    height: 55vh;
     background-color: white;
     border-radius: 3em;
     box-shadow: 0 0 1em rgba(0, 0, 0, 0.208);
@@ -79,6 +79,7 @@
     height: 100%;
     float: left;
     transition: .8s ease-in;
+    margin-top: 4vh;
     button{
         width: 20%;
         height: 5vh;
@@ -103,11 +104,10 @@
         outline: none;
         border:none;
         border-bottom: 1px solid black;
-        font-size: 1em;
+        font-size: .9em;
         background-color: none;
         &::placeholder{
-            padding-top: 2.5%;
-            font-size: .7em;
+            font-size: 1em;
             font-family: Arial;
             font-weight: 300;
             color:rgba(0, 0, 0, 0.231);

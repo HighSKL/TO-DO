@@ -43,3 +43,19 @@ export async function POST(req: Request, res: Response){
 
     return NextResponse.json({status:200})
 }
+
+export async function DELETE(req: Request, res: Response){
+    const body = await req.json()
+
+    let changedTask:Task[] = []
+
+    tasks.forEach(task=>{
+        if(task.id != body.id){
+            changedTask.push(task)
+        }
+    })
+
+    setTasks(changedTask)
+
+    NextResponse.json({status:200})
+}

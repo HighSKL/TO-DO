@@ -43,10 +43,8 @@ export default function CreateTaskModalWindow(props: PropsType) {
                 </div>
                 <div className={style.task_description_block} style={{marginLeft: firstBlockCompleted?"0%":"110%", opacity: firstBlockCompleted?"100%":"0%"}}>
                     <h1>Введите описание задачи</h1>
-                    <textarea ref={taskDescriptionTextareaRef}></textarea>
+                    <textarea ref={taskDescriptionTextareaRef} placeholder='Поле может оставаться пустым'></textarea>
                     <button onClick={()=>{createTask()}}>Создать</button>
-                    <button onClick={()=>{()=>{setFirstBlockCompleted(false)}}} style={{float: "left", marginLeft:"7%"}}>Назад</button>
-
                 </div>
             
             </div>
