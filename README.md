@@ -1,3 +1,7 @@
+
+![to_do_logo](https://github.com/HighSKL/TO-DO/assets/70512436/203ba69f-b363-49bc-be1f-0b4c79dd7dcb)
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
